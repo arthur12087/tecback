@@ -1,26 +1,28 @@
 package br.iesp.edu.api.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.Max;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Getter
-@Setter
-public class Filme {
+
+public class Serie {
 
     @Id
     @GeneratedValue
     private Integer id;
+
     private String titulo;
     private String genero;
     private int ano;
     private String duracao;
     private String relevancia;
     private String sinopse;
-
 }
