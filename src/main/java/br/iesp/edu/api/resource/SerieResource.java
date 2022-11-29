@@ -18,7 +18,7 @@ public class SerieResource {
     SerieService service;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Serie> create(@RequestBody Serie serie) {
         Serie serieCreated = service.create(serie);
 

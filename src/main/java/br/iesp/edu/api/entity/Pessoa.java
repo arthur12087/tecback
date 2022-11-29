@@ -2,10 +2,10 @@ package br.iesp.edu.api.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Parent;
+import org.hibernate.validator.constraints.UniqueElements;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Getter
@@ -14,10 +14,11 @@ import javax.validation.constraints.NotBlank;
 public class Pessoa {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
 
+    @Column(unique=true)
     private String email;
 }
