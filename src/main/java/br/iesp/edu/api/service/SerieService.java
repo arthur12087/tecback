@@ -49,4 +49,11 @@ public class SerieService {
     public Optional findById(Integer id) {
         return serieRepository.findById(id);
     }
+
+    public void update(Serie serie) {
+        if(serie.getId()==null) {
+            throw new RuntimeException("Id nulo");
+        }
+        serieRepository.save(serie);
+    }
 }
