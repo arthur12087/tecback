@@ -48,6 +48,10 @@ public class FilmeService {
 
     public void excluirPorID(Integer id){
         logger.info("Deleting filme by ID: {}", id);
+        if (!repository.existsById(id)) {
+            logger.error("Attempted to delete non-existent filme with ID: {}", id);
+            throw new RuntimeException("Filme not found");
+        }
         repository.deleteById(id);
         logger.info("Deleted filme by ID: {}", id);
     }
