@@ -54,6 +54,9 @@ public class SerieService {
         if(serie.getId()==null) {
             throw new RuntimeException("Id nulo");
         }
+        if(!serieRepository.existsById(serie.getId())) {
+            throw new RuntimeException("Serie não encontrada");
+        }
         serieRepository.save(serie);
     }
 }
